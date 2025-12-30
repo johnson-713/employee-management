@@ -115,15 +115,8 @@ export interface IUserData {
   }>;
 }
 
-export interface IUserInfoResponse extends IUserData {
-  tokens: {
-    access_token: string;
-    refresh_token: string;
-  };
-}
-
 export interface ILoginResponse {
-  data: IUserInfoResponse;
+  accessToken: string;
   status: string;
   status_code: number;
   action_code: string;
