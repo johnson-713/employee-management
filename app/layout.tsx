@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ReactQueryProvider from "./provider/ReactQueryProvider";
 import { Toaster } from "sonner";
+import AuthRedirect from "./components/AuthRedirect";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,6 +31,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ReactQueryProvider>
+          <AuthRedirect />
           {children}
           <Toaster />
         </ReactQueryProvider>
