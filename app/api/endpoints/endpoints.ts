@@ -1,6 +1,7 @@
 // Auth Endpoints
 export const authEndpoints = {
   login: `/auth/login`,
+  profile: `/auth/me`,
 };
 
 // Employees Endpoints

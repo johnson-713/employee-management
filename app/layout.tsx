@@ -4,6 +4,7 @@ import "./globals.css";
 import ReactQueryProvider from "./provider/ReactQueryProvider";
 import { Toaster } from "sonner";
 import AuthRedirect from "./components/AuthRedirect";
+import AppLayout from "./components/layout/AppLayout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,7 +33,8 @@ export default function RootLayout({
       >
         <ReactQueryProvider>
           <AuthRedirect />
-          {children}
+          <AppLayout>{children}</AppLayout>
+
           <Toaster />
         </ReactQueryProvider>
       </body>
