@@ -1,4 +1,5 @@
 "use client";
+import { useRouter } from "next/navigation";
 import AppPageWrapper from "@/components/layout/AppPageWrapper";
 // import { Button } from "@/components/ui/button";
 import useGetTableData from "@/hooks/useGetTableData";
@@ -9,10 +10,18 @@ import AppTableWithSearchAndFilter from "@/components/AppTable/AppTableWithSearc
 import type { IAppTableBody } from "@/types/types";
 
 const EmployeesPage = () => {
+  const router = useRouter();
   const { setPage, setSearch, page, tableData, isLoading, isFetching } =
     useGetTableData({
       endpoint: employeesEndpoints.list,
     });
+
+  const handleRowClick = (row: IAppTableBody) => {
+    const id = (row as { id?: number })?.id;
+    if (id) {
+      router.push(`/employees/${id}`);
+    }
+  };
 
   const headers = {
     id: "ID",
@@ -93,6 +102,7 @@ const EmployeesPage = () => {
               customValueRender={customValueRender}
               searchPlaceholder="Search employees by name, email, phone..."
               isLoading={isLoading || isFetching}
+              handleRowClick={handleRowClick}
             />
           </div>
         </div>
