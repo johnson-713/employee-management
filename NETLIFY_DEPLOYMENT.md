@@ -12,12 +12,19 @@ In your Netlify dashboard, ensure these settings:
 
 1. **Base directory**: (leave empty)
 2. **Build command**: `npm run build`
-3. **Publish directory**: (leave empty - the plugin handles this)
+3. **Publish directory**: ⚠️ **MUST BE EMPTY** - The plugin automatically sets this. If you see it set to `/opt/build/repo` or `.`, clear it!
 4. **Node version**: `20.x` or `18.x`
+
+**IMPORTANT:** Go to Site settings → Build & deploy → Continuous Deployment → Build settings
+
+- Click "Edit settings"
+- **Clear/Delete the Publish directory field** (it should be completely empty)
+- Save changes
 
 ### Environment Variables
 
 If you have environment variables, add them in:
+
 - Site settings → Environment variables
 
 ## After Deployment
@@ -42,4 +49,3 @@ If you still see 404 errors:
 
 - `netlify.toml` - Netlify configuration file
 - `@netlify/plugin-nextjs` - Next.js runtime plugin for Netlify
-
