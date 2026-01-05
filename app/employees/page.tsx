@@ -103,6 +103,7 @@ const EmployeesPage = () => {
               searchPlaceholder="Search employees by name, email, phone..."
               isLoading={isLoading || isFetching}
               handleRowClick={handleRowClick}
+              perPage={5}
             />
           </div>
         </div>
